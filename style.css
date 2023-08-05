@@ -1,0 +1,326 @@
+:root{
+    --background: #2f3b54;
+    --terminal: #171c28;
+    --terminalColor: #a2aabc;
+    --terminalHeader: #1d2433;
+    --redPoint: #fc5652;
+    --yellowPoint: #fcbc41;
+    --greenPoint: #32c749;
+    --secTextColor: #c3a6ff;
+    --liArrowColor: #5ccfe6;
+    --title: #ffcc66;
+ 
+    --typewriterSpeed: 1s;
+    --typewriterCharacters: 10;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+
+}
+
+body{
+    background: var(--background);
+    height: 100vh !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.main-container{
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 1px 10px var(--terminal);
+}
+
+.terminal-container{
+    background: var(--terminal);
+    height: 550px;
+    width: 850px;
+    border-radius: 10px;
+    color: var(--terminalColor);
+    font-size: 17px;
+    letter-spacing: 0.8px;
+    line-height: 25px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--background); 
+  border-radius: 2px;
+}
+
+.terminal-header{
+    width: 100%;
+    border-radius: 10px 0px 0px 0px;
+    background: var(--terminalHeader);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.points{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+.close-point{
+    display: flex;
+    align-items: center;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background: var(--redPoint);
+    margin: 2px;
+}
+
+.min-point{
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background: var(--yellowPoint);
+    margin: 2px;
+}
+
+.bigger-point{
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background: var(--greenPoint);
+    margin: 2px;
+}
+
+.terminal-header span{
+  width: 100%;
+  margin-right: 5.5%;
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--title);
+} 
+
+.terminal-typing {
+  position: relative;
+  position: relative;
+  width: max-content;
+}
+
+.terminal-typing::before,
+.terminal-typing::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.terminal-typing::before {
+  background: var(--terminal);
+  animation: typewriter var(--typewriterSpeed)
+    steps(var(--typewriterCharacters)) .2s forwards;
+}
+
+.terminal-typing::after {
+  width: 10px;
+  background: var(--terminalColor);
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) .2s forwards,
+    blink 500ms steps(var(--typewriterCharacters)) .2s infinite,
+    cursorDisappear 0.01s linear 1.3s forwards;
+}
+
+@keyframes cursorDisappear {
+  to {
+    width: 0; 
+  }
+}
+
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.terminal-typing-two {
+  position: relative;
+  position: relative;
+  width: max-content;
+}
+
+.terminal-typing-two::before,
+.terminal-typing-two::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.terminal-typing-two::before {
+  background: var(--terminal);
+  animation: typewriter var(--typewriterSpeed)
+    steps(var(--typewriterCharacters)) .2s forwards;
+}
+
+.terminal-typing-two::after {
+  width: 10px;
+  background: var(--terminalColor);
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) .2s forwards,
+    blink 500ms steps(var(--typewriterCharacters)) .2s infinite;
+}
+
+.about-text{
+  white-space: 10px;
+  padding: 0px 80px 0px 0px;
+}
+
+#readMoreText{
+  display: none;
+}
+.readmore-button{
+  background: none;
+  color: var(--secTextColor);
+  border: none;
+  font-size: 18px;
+  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Share Tech Mono', monospace;
+}
+.readmore-button:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.aboutme-skills li{
+  grid-template-columns: repeat(2, minmax(140px, 200px));
+  list-style: none;
+  letter-spacing: 2px;
+  line-height: 20px;
+  color: var(--terminalColor);
+}
+
+.aboutme-skills li:before {
+  content: "▸ "; 
+  color: var(--liArrowColor);
+  font-size: 15px;
+} 
+
+.project-list li{
+  grid-template-columns: repeat(2, minmax(140px, 200px));
+  list-style: none;
+  letter-spacing: 2px;
+  line-height: 20px;
+  color: var(--terminalColor);
+}
+.project-list li:before {
+  content: "▸ "; 
+  color: var(--liArrowColor);
+  font-size: 15px;
+} 
+.project-list a{
+  text-decoration: none;
+  color: var(--secTextColor);
+}
+.project-list a:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.title-arrow{
+  color: var(--secTextColor);
+  font-size: 23px;
+}
+
+.about-title, .projects-title, .tech-title, .contact {
+  padding: 10px 0px 2px 0px;
+}
+
+.mail-arrow{
+  color: var(--liArrowColor);
+}
+
+.email{
+  color: var(--secTextColor);
+}
+
+.email li{
+  grid-template-columns: repeat(2, minmax(140px, 200px));
+  list-style: none;
+  letter-spacing: 2px;
+  line-height: 20px;
+  color: var(--secTextColor);
+}
+
+.email li:before {
+  content: "▸ "; 
+  color: var(--liArrowColor);
+  font-size: 15px;
+} 
+.email span:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer{
+  padding: 50px 0px 20px 0px;
+}
+
+.github-link a{
+  text-decoration: none;
+  color: var(--secTextColor);
+}
+.github-link a:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.shoutout{
+  text-decoration: none;
+  color: var(--secTextColor);
+}
+
+.shoutout:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+#animation-drop{
+  display: none;
+}
+
+.bottom{
+  margin-bottom: 50px;
+}
